@@ -1,0 +1,8 @@
+[project]
+name = "chat-agent"
+version = "0.1.0"
+description = "Chat Agent - 前后端分离的聊天智能体项目"
+requires-python = ">=3.13"
+dependencies = [
+    "agent-client-protocol>=0.12.1",
+]

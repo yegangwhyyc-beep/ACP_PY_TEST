@@ -1,8 +1,10 @@
 [project]
 name = "chat-agent"
 version = "0.1.0"
-description = "Chat Agent - 前后端分离的聊天智能体项目"
+description = "TRAE Agent Chat - trae_http.py（ACP->HTTP 服务）+ index.html（前端）"
 requires-python = ">=3.13"
 dependencies = [
     "agent-client-protocol>=0.12.1",
+    "fastapi>=0.162.0",
+    "uvicorn>=0.54.0",
 ]

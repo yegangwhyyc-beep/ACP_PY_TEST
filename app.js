@@ -84,26 +84,36 @@ function addBubble(text, role, cls) {
   return bubble;
 }
 
-function addExtras(bubble, thoughts, toolEvents) {
-  if ((!thoughts || !thoughts.length) && (!toolEvents || !toolEvents.length)) return;
+// ===== 实时事件区（思考/工具调用），流式期间持续追加 =====
+function createExtras(bubble) {
   const details = document.createElement("details");
   details.className = "extra";
-  const parts = [];
-  if (thoughts && thoughts.length) parts.push(`思考过程 (${thoughts.length})`);
-  if (toolEvents && toolEvents.length) parts.push(`工具调用 (${toolEvents.length})`);
+  details.style.display = "none";
   const summary = document.createElement("summary");
-  summary.textContent = parts.join(" · ");
   const box = document.createElement("div");
   box.className = "items";
-  (thoughts || []).forEach(t => { const d = document.createElement("div"); d.textContent = "💭 " + t; box.appendChild(d); });
-  (toolEvents || []).forEach(t => { const d = document.createElement("div"); d.textContent = "🔧 " + t; box.appendChild(d); });
   details.appendChild(summary);
   details.appendChild(box);
   bubble.appendChild(details);
   bubble.style.whiteSpace = "normal";
+  const counts = { thought: 0, tool: 0 };
+  return {
+    add(kind, text) {
+      details.style.display = "";
+      counts[kind]++;
+      const parts = [];
+      if (counts.thought) parts.push(`思考过程 (${counts.thought})`);
+      if (counts.tool) parts.push(`工具调用 (${counts.tool})`);
+      summary.textContent = parts.join(" · ");
+      const d = document.createElement("div");
+      d.textContent = (kind === "thought" ? "💭 " : "🔧 ") + text;
+      box.appendChild(d);
+      box.scrollTop = box.scrollHeight;
+    },
+  };
 }
 
-// ===== 发送：POST /api/chat =====
+// ===== 发送：POST /api/chat（SSE 流式） =====
 let busy = false;
 async function sendMessage() {
   const text = inputEl.value.trim();
@@ -113,23 +123,80 @@ async function sendMessage() {
   inputEl.value = "";
   addBubble(text, "user");
 
-  const typing = addBubble("思考中…", "assistant", "typing");
+  const bubble = addBubble("思考中…", "assistant", "typing");
+  const placeholder = bubble.firstChild; // “思考中…” 文本节点
+  const content = document.createElement("div"); // markdown 渲染目标，与事件区隔离
+  bubble.appendChild(content);
+  const extras = createExtras(bubble);
+  let replyText = "";
+  let rendered = false;
+
+  const render = () => {
+    if (!replyText) return;
+    rendered = true;
+    if (placeholder) placeholder.remove();
+    bubble.classList.add("md");
+    fillMarkdown(content, replyText);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  };
+
+  const handleEvent = ev => {
+    if (ev.type === "chunk") {
+      replyText += ev.text;
+      render();
+    } else if (ev.type === "thought" || ev.type === "tool") {
+      extras.add(ev.type, ev.text);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    } else if (ev.type === "done") {
+      replyText = ev.reply || replyText;
+      render();
+    } else if (ev.type === "error") {
+      throw new Error(ev.detail || "unknown error");
+    }
+  };
+
   try {
     const res = await fetch(`${API_BASE}/api/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text }),
+      // SSE 长连接：关闭服务端超时（0），需要中止时刷新页面即可（断连会取消 prompt）
+      body: JSON.stringify({ message: text, timeout: 0 }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
-    typing.classList.remove("typing");
-    fillMarkdown(typing, data.reply || "(空回复)");
-    addExtras(typing, data.thoughts, data.tool_events);
+    if (!res.ok) {
+      let detail = `HTTP ${res.status}`;
+      try { const e = await res.json(); if (e.detail) detail = e.detail; } catch {}
+      throw new Error(detail);
+    }
+    if (!res.body) throw new Error("当前浏览器不支持流式读取");
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = "";
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      let sep;
+      while ((sep = buf.indexOf("\n\n")) >= 0) {
+        const frame = buf.slice(0, sep);
+        buf = buf.slice(sep + 2);
+        const dataLine = frame.split("\n").find(l => l.startsWith("data:"));
+        if (!dataLine) continue;
+        handleEvent(JSON.parse(dataLine.slice(5).trim()));
+      }
+    }
+    if (!rendered) {
+      if (placeholder) placeholder.remove();
+      content.textContent = replyText || "(空回复)";
+    }
   } catch (err) {
-    typing.classList.remove("typing");
-    typing.classList.add("error");
-    typing.textContent = "请求失败：" + err.message;
+    if (!rendered && placeholder) placeholder.remove();
+    bubble.classList.add("error");
+    const d = document.createElement("div");
+    d.textContent = "请求失败：" + (err.message || "未知错误");
+    bubble.appendChild(d);
   } finally {
+    bubble.classList.remove("typing");
     busy = false;
     sendBtn.disabled = false;
     inputEl.focus();
@@ -144,7 +211,6 @@ resetBtn.addEventListener("click", async () => {
   try {
     const res = await fetch(`${API_BASE}/api/session/reset`, { method: "POST" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
     messagesEl.innerHTML = "";
     addBubble("已开启新会话，上下文已清空。", "assistant");
     checkHealth();

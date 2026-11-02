@@ -1,0 +1,87 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - generic [ref=f2e6]:
+        - link "CUSTOMER 360" [ref=f2e9] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f2e10]:
+            - generic [ref=f2e12]: CUSTOMER
+            - generic [ref=f2e13]: "360"
+        - menu [ref=f2e15]:
+          - generic [ref=f2e17]:
+            - menuitem "工作台" [ref=f2e18] [cursor=pointer]
+            - menuitem "客户管理" [ref=f2e20] [cursor=pointer]
+            - menuitem "商机管理" [ref=f2e21] [cursor=pointer]
+            - generic [ref=f2e22] [cursor=pointer]: 商务管理
+            - menuitem "经营管理" [ref=f2e23] [cursor=pointer]
+            - menuitem "投标管理" [ref=f2e24] [cursor=pointer]
+            - menuitem "项目管理" [ref=f2e25] [cursor=pointer]
+            - generic [ref=f2e26] [cursor=pointer]: 其他
+      - generic [ref=f2e28]:
+        - list [ref=f2e29] [cursor=pointer]:
+          - listitem [ref=f2e30]:
+            - textbox "搜索（⌘ + K)" [ref=f2e41]
+          - listitem [ref=f2e48]:
+            - combobox [ref=f2e49]:
+              - generic "火山" [ref=f2e50]:
+                - generic [ref=f2e51]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e52]: 火山
+          - listitem [ref=f2e57]:
+            - combobox [ref=f2e58]:
+              - generic "中文" [ref=f2e59]:
+                - generic [ref=f2e66]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e67]: 中文
+        - img "avatar" [ref=f2e76] [cursor=pointer]
+    - main [ref=f2e83]:
+      - generic [ref=f2e85]:
+        - generic [ref=f2e87]:
+          - generic [ref=f2e88]:
+            - generic [ref=f2e89]: 待办事项
+            - button "查看更多" [ref=f2e90] [cursor=pointer]
+          - generic [ref=f2e93]:
+            - generic [ref=f2e95] [cursor=pointer]:
+              - generic [ref=f2e96]: 待办
+              - paragraph [ref=f2e101]: "1"
+            - generic [ref=f2e103] [cursor=pointer]:
+              - generic [ref=f2e104]: 已处理
+              - paragraph [ref=f2e109]: "5"
+          - generic [ref=f2e110]:
+            - generic [ref=f2e111] [cursor=pointer]:
+              - generic [ref=f2e112]: 待办
+              - generic [ref=f2e115]: 【产品/解决方案问题】您有一条问题流转待办，请及时查看
+            - generic [ref=f2e118] [cursor=pointer]:
+              - generic [ref=f2e119]: 已完成
+              - generic "【销售任务书确认】您有一条销售任务书确认代办，请及时查看" [ref=f2e122]: 【销售任务书确认】您有一条销售任务书确认代办，请...
+            - generic [ref=f2e125] [cursor=pointer]:
+              - generic [ref=f2e126]: 已完成
+              - generic "【销售任务书确认】您有一条销售任务书确认代办，请及时查看" [ref=f2e129]: 【销售任务书确认】您有一条销售任务书确认代办，请...
+            - generic [ref=f2e132] [cursor=pointer]:
+              - generic [ref=f2e133]: 已完成
+              - generic [ref=f2e136]: 【项目制提前交付】您有一条问题流转待办，请及时查看
+            - generic [ref=f2e139] [cursor=pointer]:
+              - generic [ref=f2e140]: 已完成
+              - generic "【销售任务书确认】您有一条销售任务书确认代办，请及时查看" [ref=f2e143]: 【销售任务书确认】您有一条销售任务书确认代办，请...
+        - generic [ref=f2e147]:
+          - generic [ref=f2e148]:
+            - generic [ref=f2e149]: 客户问题
+            - button "查看更多" [ref=f2e152] [cursor=pointer]
+          - generic [ref=f2e155]: 暂无数据
+  - generic [ref=f2e162]:
+    - generic [ref=f2e163]:
+      - generic [ref=f2e164]:
+        - generic [ref=f2e168]: C360 AI 助手 · 试试问我
+        - button "关闭引导（今天不再展示）" [ref=f2e169] [cursor=pointer]
+      - button "推荐问题：26年至今收入TOP5客户是哪些？收入分别是多少？产品构成是什么？" [ref=f2e209] [cursor=pointer]:
+        - generic [ref=f2e173]:
+          - generic [ref=f2e174]: 如何申请成为客户协作人？
+          - generic [ref=f2e175]: 我协同的客户中，最近一周的Seedance ...
+          - generic [ref=f2e177]: 26年至今收入TOP5客户是哪些？收入分...
+          - generic [ref=f2e179]: Seedance 2.0 的客户案例有哪些？
+          - generic [ref=f2e180]: Seedream 5.0 pro有哪些核心功能？
+          - generic [ref=f2e181]: 如何申请成为客户协作人？
+      - button "点击右侧图标开始对话" [ref=f2e182] [cursor=pointer]
+    - button "打开 C360 AI 助手" [ref=f2e185]:
+      - generic [ref=f2e186]: 试试 AI
+      - img "C360 AI 助手入口" [ref=f2e187]

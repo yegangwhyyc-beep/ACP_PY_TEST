@@ -1,0 +1,629 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - generic [ref=f2e6]:
+        - link "CUSTOMER 360" [ref=f2e9] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f2e10]:
+            - generic [ref=f2e12]: CUSTOMER
+            - generic [ref=f2e13]: "360"
+        - menu [ref=f2e15]:
+          - generic [ref=f2e17]:
+            - menuitem "工作台" [ref=f2e18] [cursor=pointer]
+            - menuitem "客户管理" [active] [ref=f2e20] [cursor=pointer]
+            - menuitem "商机管理" [ref=f2e21] [cursor=pointer]
+            - generic [ref=f2e22] [cursor=pointer]: 商务管理
+            - menuitem "经营管理" [ref=f2e23] [cursor=pointer]
+            - menuitem "投标管理" [ref=f2e24] [cursor=pointer]
+            - menuitem "项目管理" [ref=f2e25] [cursor=pointer]
+            - generic [ref=f2e26] [cursor=pointer]: 其他
+      - generic [ref=f2e28]:
+        - list [ref=f2e29] [cursor=pointer]:
+          - listitem [ref=f2e30]:
+            - textbox "搜索（⌘ + K)" [ref=f2e41]
+          - listitem [ref=f2e48]:
+            - combobox [ref=f2e49]:
+              - generic "火山" [ref=f2e50]:
+                - generic [ref=f2e51]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e52]: 火山
+          - listitem [ref=f2e57]:
+            - combobox [ref=f2e58]:
+              - generic "中文" [ref=f2e59]:
+                - generic [ref=f2e66]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e67]: 中文
+        - img "avatar" [ref=f2e76] [cursor=pointer]
+    - generic [ref=f2e77]:
+      - menu [ref=f2e212]:
+        - generic [ref=f2e214]:
+          - menuitem "客户列表" [ref=f2e215] [cursor=pointer]
+          - menuitem "查询工作台" [ref=f2e216] [cursor=pointer]
+          - menuitem "账号列表" [ref=f2e217] [cursor=pointer]
+        - button [expanded] [ref=f2e218] [cursor=pointer]
+      - main [ref=f2e224]:
+        - main [ref=f2e226]:
+          - main [ref=f2e228]:
+            - generic [ref=f2e229]:
+              - generic [ref=f2e230]: 客户列表
+              - generic [ref=f2e234]:
+                - generic [ref=f2e238]:
+                  - tab "全部客户" [selected] [ref=f2e239] [cursor=pointer]
+                  - tab "我负责的" [ref=f2e241] [cursor=pointer]
+                  - tab "我协作的" [ref=f2e243] [cursor=pointer]
+                  - tab "我收藏的" [ref=f2e245] [cursor=pointer]
+                - tabpanel "全部客户" [ref=f2e249]:
+                  - generic [ref=f2e251]:
+                    - generic [ref=f2e252]:
+                      - radiogroup [ref=f2e253]:
+                        - generic [ref=f2e254] [cursor=pointer]:
+                          - radio "单客户维度" [checked]
+                          - generic [ref=f2e255]: 单客户维度
+                      - button "申请协作人" [ref=f2e263] [cursor=pointer]
+                    - generic [ref=f2e267]:
+                      - generic [ref=f2e269]:
+                        - generic [ref=f2e271]:
+                          - tab "全部客户" [selected] [ref=f2e274] [cursor=pointer]
+                          - generic [ref=f2e288]:
+                            - combobox [ref=f2e289]:
+                              - generic [ref=f2e291]:
+                                - textbox "在视图库里搜索选择" [ref=f2e292]
+                                - generic [ref=f2e293]: 在视图库里搜索选择
+                            - text: "|"
+                            - button "创建为新视图" [ref=f2e298] [cursor=pointer]
+                        - generic [ref=f2e301]:
+                          - generic:
+                            - tabpanel "全部客户"
+                      - generic [ref=f2e303]:
+                        - generic [ref=f2e304]:
+                          - generic [ref=f2e306]:
+                            - generic [ref=f2e307]: 客户名称/客户编号
+                            - combobox [ref=f2e308]:
+                              - textbox "请输入客户名称/简称/编号" [ref=f2e313]
+                          - generic [ref=f2e319]:
+                            - generic [ref=f2e320]:
+                              - generic [ref=f2e321]: 客户标签
+                              - img [aria-hidden] [ref=f2e322] [cursor=pointer]
+                            - combobox [ref=f2e325]:
+                              - textbox "全部" [ref=f2e330]
+                        - generic [ref=f2e335]:
+                          - button [ref=f2e338] [cursor=pointer]
+                          - button [ref=f2e344] [cursor=pointer]
+                      - generic [ref=f2e350]:
+                        - generic [ref=f2e353]:
+                          - table [ref=f2e355]:
+                            - rowgroup [ref=f2e415]:
+                              - row [ref=f2e416]:
+                                - columnheader "客户名称/客户编号" [ref=f2e417]
+                                - columnheader "客户标签" [ref=f2e419]
+                                - columnheader [ref=f2e422]:
+                                  - generic [ref=f2e423]:
+                                    - generic [ref=f2e425]:
+                                      - text: L级
+                                      - img [aria-hidden] [ref=f2e426] [cursor=pointer]
+                                    - generic [ref=f2e429] [cursor=pointer]
+                                - columnheader "客户简称" [ref=f2e433]
+                                - columnheader [ref=f2e436]:
+                                  - generic [ref=f2e437]:
+                                    - generic [ref=f2e439]:
+                                      - text: 客户等级
+                                      - img [aria-hidden] [ref=f2e440] [cursor=pointer]
+                                    - generic [ref=f2e443] [cursor=pointer]
+                                - columnheader "客户所有人" [ref=f2e447]:
+                                  - generic [ref=f2e448]:
+                                    - generic [ref=f2e449]: 客户所有人
+                                    - generic [ref=f2e450] [cursor=pointer]
+                                - columnheader "销售团队" [ref=f2e454]
+                                - columnheader "销售小组" [ref=f2e457]
+                                - columnheader "二级小组" [ref=f2e460]
+                                - columnheader "近3个月收入" [ref=f2e463]
+                                - columnheader "行业" [ref=f2e479]:
+                                  - generic [ref=f2e480]:
+                                    - generic [ref=f2e481]: 行业
+                                    - generic [ref=f2e482] [cursor=pointer]
+                                - columnheader "二级行业" [ref=f2e486]:
+                                  - generic [ref=f2e487]:
+                                    - generic [ref=f2e488]: 二级行业
+                                    - generic [ref=f2e489] [cursor=pointer]
+                                - columnheader "客户类型" [ref=f2e493]:
+                                  - generic [ref=f2e494]:
+                                    - generic [ref=f2e495]: 客户类型
+                                    - generic [ref=f2e496] [cursor=pointer]
+                                - columnheader "主客户" [ref=f2e500]
+                                - columnheader "主客户简称" [ref=f2e503]
+                                - columnheader "公司规模" [ref=f2e506]:
+                                  - generic [ref=f2e507]:
+                                    - generic [ref=f2e508]: 公司规模
+                                    - generic [ref=f2e509] [cursor=pointer]
+                                - columnheader "客户来源" [ref=f2e513]:
+                                  - generic [ref=f2e514]:
+                                    - generic [ref=f2e515]: 客户来源
+                                    - generic [ref=f2e516] [cursor=pointer]
+                                - columnheader "区域" [ref=f2e520]:
+                                  - generic [ref=f2e521]:
+                                    - generic [ref=f2e522]: 区域
+                                    - generic [ref=f2e523] [cursor=pointer]
+                                - columnheader "国家" [ref=f2e527]:
+                                  - generic [ref=f2e528]:
+                                    - generic [ref=f2e529]: 国家
+                                    - generic [ref=f2e530] [cursor=pointer]
+                                - columnheader "省份" [ref=f2e534]:
+                                  - generic [ref=f2e535]:
+                                    - generic [ref=f2e536]: 省份
+                                    - generic [ref=f2e537] [cursor=pointer]
+                                - columnheader "城市" [ref=f2e541]:
+                                  - generic [ref=f2e542]:
+                                    - generic [ref=f2e543]: 城市
+                                    - generic [ref=f2e544] [cursor=pointer]
+                                - columnheader "客户状态" [ref=f2e548]:
+                                  - generic [ref=f2e549]:
+                                    - generic [ref=f2e550]: 客户状态
+                                    - generic [ref=f2e551] [cursor=pointer]
+                                - columnheader [ref=f2e555]:
+                                  - generic [ref=f2e556]:
+                                    - generic [ref=f2e557] [cursor=pointer]: 客户跟进状态
+                                    - generic [ref=f2e565] [cursor=pointer]
+                                - columnheader "跟进时长" [ref=f2e569]
+                                - columnheader "最新修改人" [ref=f2e585]
+                                - columnheader "客保到期时间" [ref=f2e596]
+                                - columnheader "客保到期原因" [ref=f2e607]
+                                - columnheader "是否占库容" [ref=f2e618]
+                                - columnheader "商机数量" [ref=f2e629]
+                                - columnheader "赢单商机数量" [ref=f2e640]
+                                - columnheader "赢单商机总额" [ref=f2e651]
+                                - columnheader "云潜力（万）" [ref=f2e662]
+                                - columnheader "开启中合同数量" [ref=f2e673]
+                                - columnheader "火山渗透率" [ref=f2e689]
+                                - columnheader "最新记录年度" [ref=f2e700]
+                                - columnheader [ref=f2e711]:
+                                  - generic [ref=f2e712]:
+                                    - generic [ref=f2e713] [cursor=pointer]: 客户名单分类
+                                    - generic [ref=f2e721] [cursor=pointer]
+                                - columnheader "累计创建商机数" [ref=f2e725]
+                                - columnheader "客户归属状态" [ref=f2e736]:
+                                  - generic [ref=f2e737]:
+                                    - generic [ref=f2e738]: 客户归属状态
+                                    - generic [ref=f2e739] [cursor=pointer]
+                                - columnheader "客户团队-销售" [ref=f2e743]
+                                - columnheader "客户团队-BD" [ref=f2e746]
+                                - columnheader "客户团队-渠道&生态" [ref=f2e749]
+                                - columnheader "客户团队-行解" [ref=f2e752]
+                                - columnheader "客户团队-CSM" [ref=f2e763]
+                                - columnheader "最近拜访日期" [ref=f2e774]
+                                - columnheader "首次拜访日期" [ref=f2e785]
+                                - columnheader "最近签约日期" [ref=f2e796]
+                                - columnheader "最新关联owner时间" [ref=f2e807]
+                                - columnheader "前归属人" [ref=f2e818]
+                                - columnheader "前归属团队" [ref=f2e821]
+                                - columnheader "Byteplus客户编号" [ref=f2e824]:
+                                  - generic [ref=f2e825]:
+                                    - generic [ref=f2e826]: Byteplus客户编号
+                                    - generic [ref=f2e827] [cursor=pointer]
+                                - columnheader "客户开业状态" [ref=f2e831]:
+                                  - generic [ref=f2e832]:
+                                    - generic [ref=f2e833]: 客户开业状态
+                                    - generic [ref=f2e834] [cursor=pointer]
+                                - columnheader "渠道销售跟进状态" [ref=f2e838]:
+                                  - generic [ref=f2e839]:
+                                    - generic [ref=f2e840]: 渠道销售跟进状态
+                                    - generic [ref=f2e841] [cursor=pointer]
+                                - columnheader "客户流程处理中类型" [ref=f2e845]:
+                                  - generic [ref=f2e846]:
+                                    - generic [ref=f2e847]: 客户流程处理中类型
+                                    - generic [ref=f2e848] [cursor=pointer]
+                                - columnheader "处理负责人" [ref=f2e852]:
+                                  - generic [ref=f2e853]:
+                                    - generic [ref=f2e854]: 处理负责人
+                                    - generic [ref=f2e855] [cursor=pointer]
+                                - columnheader "当前所有人外呼次数" [ref=f2e859]
+                                - columnheader "当前所有人最近一次外呼时间" [ref=f2e875]
+                                - columnheader "是否关联火山账号" [ref=f2e891]
+                                - columnheader "SMB客户潜力评级" [ref=f2e894]:
+                                  - generic [ref=f2e895]:
+                                    - generic [ref=f2e896]: SMB客户潜力评级
+                                    - generic [ref=f2e897] [cursor=pointer]
+                          - table [ref=f2e902]:
+                            - rowgroup [ref=f2e962]:
+                              - row [ref=f2e963]:
+                                - cell [ref=f2e964]:
+                                  - generic [ref=f2e967]:
+                                    - link "深圳市欢太科技有限公司" [ref=f2e968] [cursor=pointer]:
+                                      - /url: /customer/0015g00000Cg07HAAR
+                                    - generic [ref=f2e970]:
+                                      - text: ACC-0000011229
+                                      - button "复制" [ref=f2e971] [cursor=pointer]
+                                - cell "火山飞书分别跟进 豆包工作存量客户 +4" [ref=f2e974]:
+                                  - generic [ref=f2e977]:
+                                    - generic [ref=f2e978]: 火山飞书分别跟进
+                                    - generic [ref=f2e981]: 豆包工作存量客户
+                                    - generic [ref=f2e984] [cursor=pointer]: "+4"
+                                - cell "-" [ref=f2e986]
+                                - cell "OPPO" [ref=f2e988]
+                                - cell "战略关联客户" [ref=f2e992]
+                                - cell "用户头像 傅元灿" [ref=f2e994]:
+                                  - generic [ref=f2e998] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e999]
+                                    - generic [ref=f2e1000]: 傅元灿
+                                - cell "厂商" [ref=f2e1002]
+                                - cell "厂商-OPPO" [ref=f2e1004]
+                                - cell "-" [ref=f2e1006]
+                                - cell "<1万" [ref=f2e1008]
+                                - cell "消费电子" [ref=f2e1010]
+                                - cell "手机数码产品" [ref=f2e1012]
+                                - cell "企业客户" [ref=f2e1014]
+                                - cell [ref=f2e1016]:
+                                  - link "OPPO广东移动通信有限公司" [ref=f2e1020] [cursor=pointer]:
+                                    - /url: /customer/0015g00000CfgKwAAJ
+                                - cell "OPPO" [ref=f2e1021]
+                                - cell "10000+" [ref=f2e1025]
+                                - cell "批量导入" [ref=f2e1027]
+                                - cell "华南区" [ref=f2e1029]
+                                - cell "中国" [ref=f2e1031]
+                                - cell "广东省" [ref=f2e1033]
+                                - cell "深圳市" [ref=f2e1035]
+                                - cell "已生效" [ref=f2e1037]
+                                - cell "已签约" [ref=f2e1039]
+                                - cell "3.8" [ref=f2e1041]
+                                - cell "用户头像 System" [ref=f2e1043]:
+                                  - generic [ref=f2e1047] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1048]
+                                    - generic [ref=f2e1049]: System
+                                - cell "-" [ref=f2e1051]
+                                - cell "-" [ref=f2e1053]
+                                - cell "否" [ref=f2e1055]
+                                - cell "63" [ref=f2e1057]
+                                - cell "27" [ref=f2e1059]
+                                - cell "¥52.31亿" [ref=f2e1061]
+                                - cell "7500" [ref=f2e1063]
+                                - cell "13" [ref=f2e1065]
+                                - cell "21.83%" [ref=f2e1067]
+                                - cell "2024" [ref=f2e1069]
+                                - cell "厂商名单" [ref=f2e1071]
+                                - cell "63" [ref=f2e1073]
+                                - cell "销售跟进中" [ref=f2e1075]
+                                - cell [ref=f2e1077]:
+                                  - generic [ref=f2e1082]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell [ref=f2e1083]:
+                                  - generic [ref=f2e1088]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell "-" [ref=f2e1089]
+                                - cell [ref=f2e1092]:
+                                  - generic [ref=f2e1097]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell [ref=f2e1098]:
+                                  - generic [ref=f2e1103]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell "2026-08-25" [ref=f2e1104]
+                                - cell "2022-05-30" [ref=f2e1106]
+                                - cell "2026-09-29" [ref=f2e1108]
+                                - cell "2022-12-02 12:09:14" [ref=f2e1110]
+                                - cell "用户头像 王书曈" [ref=f2e1112]:
+                                  - generic [ref=f2e1116] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1117]
+                                    - generic [ref=f2e1118]: 王书曈
+                                - cell "厂商/厂商-OPPO" [ref=f2e1120]
+                                - cell "-" [ref=f2e1122]
+                                - cell "开业" [ref=f2e1124]
+                                - cell "-" [ref=f2e1126]
+                                - cell "-" [ref=f2e1128]
+                                - cell "-" [ref=f2e1130]
+                                - cell [ref=f2e1132]
+                                - cell "-" [ref=f2e1133]
+                                - cell "是" [ref=f2e1135]
+                                - cell "S" [ref=f2e1137]
+                              - row [ref=f2e1139]:
+                                - cell "宁德时代新能源科技股份有限公司 ACC-0000015747复制 主客户 智能推荐" [ref=f2e1140]:
+                                  - generic [ref=f2e1143]:
+                                    - link "宁德时代新能源科技股份有限公司" [ref=f2e1144] [cursor=pointer]:
+                                      - /url: /customer/0015g00000CjR9DAAV
+                                    - generic [ref=f2e1145]:
+                                      - generic [ref=f2e1146]:
+                                        - text: ACC-0000015747
+                                        - button "复制" [ref=f2e1147] [cursor=pointer]
+                                      - generic [ref=f2e1150]: 主客户
+                                      - generic [ref=f2e1152] [cursor=pointer]: 智能推荐
+                                - cell "火山飞书分别跟进 豆包工作存量客户 +5" [ref=f2e1154]:
+                                  - generic [ref=f2e1157]:
+                                    - generic [ref=f2e1158]: 火山飞书分别跟进
+                                    - generic [ref=f2e1161]: 豆包工作存量客户
+                                    - generic [ref=f2e1164] [cursor=pointer]: "+5"
+                                - cell "L3" [ref=f2e1166]
+                                - cell "宁德时代" [ref=f2e1168]
+                                - cell "NA客户" [ref=f2e1172]
+                                - cell "用户头像 林润冰" [ref=f2e1174]:
+                                  - generic [ref=f2e1178] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1179]
+                                    - generic [ref=f2e1180]: 林润冰
+                                - cell "泛互&通用-南区" [ref=f2e1182]
+                                - cell "福建泛企业" [ref=f2e1184]
+                                - cell "-" [ref=f2e1186]
+                                - cell ">1万" [ref=f2e1188]
+                                - cell "制造业" [ref=f2e1190]
+                                - cell "设备制造" [ref=f2e1192]
+                                - cell "企业客户" [ref=f2e1194]
+                                - cell "-" [ref=f2e1196]
+                                - cell "-" [ref=f2e1198]
+                                - cell "10000+" [ref=f2e1200]
+                                - cell "批量导入" [ref=f2e1202]
+                                - cell "华南区" [ref=f2e1204]
+                                - cell "中国" [ref=f2e1206]
+                                - cell "福建省" [ref=f2e1208]
+                                - cell "宁德市" [ref=f2e1210]
+                                - cell "已生效" [ref=f2e1212]
+                                - cell "已签约" [ref=f2e1214]
+                                - cell "0.3" [ref=f2e1216]
+                                - cell "用户头像 System" [ref=f2e1218]:
+                                  - generic [ref=f2e1222] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1223]
+                                    - generic [ref=f2e1224]: System
+                                - cell "-" [ref=f2e1226]
+                                - cell [ref=f2e1228]:
+                                  - generic [ref=f2e1232]:
+                                    - text: 客保长期有效（有在途项目,客户有签约合同并在有效期内,有信...
+                                    - button "展开" [ref=f2e1233] [cursor=pointer]
+                                - cell "是" [ref=f2e1234]
+                                - cell "29" [ref=f2e1236]
+                                - cell [ref=f2e1238]
+                                - cell "¥0" [ref=f2e1239]
+                                - cell "1233" [ref=f2e1241]
+                                - cell [ref=f2e1243]
+                                - cell "0.00%" [ref=f2e1244]
+                                - cell "2024" [ref=f2e1246]
+                                - cell "-" [ref=f2e1248]
+                                - cell "24" [ref=f2e1250]
+                                - cell "销售跟进中" [ref=f2e1252]
+                                - cell [ref=f2e1254]:
+                                  - generic [ref=f2e1259]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell "-" [ref=f2e1260]
+                                - cell "-" [ref=f2e1263]
+                                - cell [ref=f2e1266]:
+                                  - generic [ref=f2e1271]:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - img "用户头像"
+                                - cell "-" [ref=f2e1272]
+                                - cell "2026-10-30" [ref=f2e1275]
+                                - cell "2021-10-17" [ref=f2e1277]
+                                - cell "2026-04-02" [ref=f2e1279]
+                                - cell "2026-07-05 01:06:57" [ref=f2e1281]
+                                - cell "用户头像 赖亚怀" [ref=f2e1283]:
+                                  - generic [ref=f2e1287] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1288]
+                                    - generic [ref=f2e1289]: 赖亚怀
+                                - cell "泛互&通用-南区/福建泛企业" [ref=f2e1291]
+                                - cell "-" [ref=f2e1293]
+                                - cell "开业" [ref=f2e1295]
+                                - cell "-" [ref=f2e1297]
+                                - cell "-" [ref=f2e1299]
+                                - cell "-" [ref=f2e1301]
+                                - cell [ref=f2e1303]
+                                - cell "-" [ref=f2e1304]
+                                - cell "是" [ref=f2e1306]
+                                - cell "S" [ref=f2e1308]
+                              - row [ref=f2e1310]:
+                                - cell "深圳市倍思科技有限公司 ACC-0000268176复制 主客户" [ref=f2e1311]:
+                                  - generic [ref=f2e1314]:
+                                    - link "深圳市倍思科技有限公司" [ref=f2e1315] [cursor=pointer]:
+                                      - /url: /customer/001BB000004kcF3YAI
+                                    - generic [ref=f2e1316]:
+                                      - generic [ref=f2e1317]:
+                                        - text: ACC-0000268176
+                                        - button "复制" [ref=f2e1318] [cursor=pointer]
+                                      - generic [ref=f2e1321]: 主客户
+                                - cell "火山飞书分别跟进 豆包工作存量客户 +6" [ref=f2e1323]:
+                                  - generic [ref=f2e1326]:
+                                    - generic [ref=f2e1327]: 火山飞书分别跟进
+                                    - generic [ref=f2e1330]: 豆包工作存量客户
+                                    - generic [ref=f2e1333] [cursor=pointer]: "+6"
+                                - cell "-" [ref=f2e1335]
+                                - cell "倍思科技" [ref=f2e1337]
+                                - cell "KA客户" [ref=f2e1341]
+                                - cell "用户头像 傅元灿" [ref=f2e1343]:
+                                  - generic [ref=f2e1347] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1348]
+                                    - generic [ref=f2e1349]: 傅元灿
+                                - cell "厂商" [ref=f2e1351]
+                                - cell "厂商-OPPO" [ref=f2e1353]
+                                - cell "-" [ref=f2e1355]
+                                - cell ">1万" [ref=f2e1357]
+                                - cell "消费电子" [ref=f2e1359]
+                                - cell "非手机类电子产品" [ref=f2e1361]
+                                - cell "企业客户" [ref=f2e1363]
+                                - cell "-" [ref=f2e1365]
+                                - cell "-" [ref=f2e1367]
+                                - cell "不确定" [ref=f2e1369]
+                                - cell "线索转化" [ref=f2e1371]
+                                - cell "华南区" [ref=f2e1373]
+                                - cell "中国" [ref=f2e1375]
+                                - cell "广东省" [ref=f2e1377]
+                                - cell "深圳市" [ref=f2e1379]
+                                - cell "已生效" [ref=f2e1381]
+                                - cell "已签约" [ref=f2e1383]
+                                - cell "1.3" [ref=f2e1385]
+                                - cell "用户头像 System" [ref=f2e1387]:
+                                  - generic [ref=f2e1391] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1392]
+                                    - generic [ref=f2e1393]: System
+                                - cell "-" [ref=f2e1395]
+                                - cell [ref=f2e1397]:
+                                  - generic [ref=f2e1401]:
+                                    - text: 客保长期有效（有在途项目,客户有签约合同并在有效期内,有信...
+                                    - button "展开" [ref=f2e1402] [cursor=pointer]
+                                - cell "是" [ref=f2e1403]
+                                - cell "15" [ref=f2e1405]
+                                - cell "2" [ref=f2e1407]
+                                - cell "¥60万" [ref=f2e1409]
+                                - cell "200" [ref=f2e1411]
+                                - cell "1" [ref=f2e1413]
+                                - cell "0.00%" [ref=f2e1415]
+                                - cell "2024" [ref=f2e1417]
+                                - cell "厂商名单" [ref=f2e1419]
+                                - cell "11" [ref=f2e1421]
+                                - cell "销售跟进中" [ref=f2e1423]
+                                - cell "-" [ref=f2e1425]
+                                - cell "-" [ref=f2e1428]
+                                - cell "-" [ref=f2e1431]
+                                - cell "-" [ref=f2e1434]
+                                - cell "-" [ref=f2e1437]
+                                - cell "2025-08-12" [ref=f2e1440]
+                                - cell "2023-04-10" [ref=f2e1442]
+                                - cell "2026-04-17" [ref=f2e1444]
+                                - cell "2025-07-30 15:07:37" [ref=f2e1446]
+                                - cell "用户头像 吴磊" [ref=f2e1448]:
+                                  - generic [ref=f2e1452] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1453]
+                                    - generic [ref=f2e1454]: 吴磊
+                                - cell "厂商/厂商-OPPO" [ref=f2e1456]
+                                - cell "-" [ref=f2e1458]
+                                - cell "开业" [ref=f2e1460]
+                                - cell "-" [ref=f2e1462]
+                                - cell "-" [ref=f2e1464]
+                                - cell "-" [ref=f2e1466]
+                                - cell [ref=f2e1468]
+                                - cell "-" [ref=f2e1469]
+                                - cell "是" [ref=f2e1471]
+                                - cell "S" [ref=f2e1473]
+                              - row [ref=f2e1475]:
+                                - cell "迪洛斯人工智能科技（四川）有限... ACC-0002548566复制 主客户" [ref=f2e1476]:
+                                  - generic [ref=f2e1479]:
+                                    - link "迪洛斯人工智能科技（四川）有限..." [ref=f2e1480] [cursor=pointer]:
+                                      - /url: /customer/001TK00000I0PdiYAF
+                                    - generic [ref=f2e1481]:
+                                      - generic [ref=f2e1482]:
+                                        - text: ACC-0002548566
+                                        - button "复制" [ref=f2e1483] [cursor=pointer]
+                                      - generic [ref=f2e1486]: 主客户
+                                - cell "火山统一跟进" [ref=f2e1488]
+                                - cell "-" [ref=f2e1495]
+                                - cell "迪洛斯人工智能科技（四川）有限公司" [ref=f2e1497]
+                                - cell "暂无评级" [ref=f2e1501]
+                                - cell "用户头像 张宜宾" [ref=f2e1503]:
+                                  - generic [ref=f2e1507] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1508]
+                                    - generic [ref=f2e1509]: 张宜宾
+                                - cell "生态" [ref=f2e1511]
+                                - cell "区域伙伴发展" [ref=f2e1513]
+                                - cell "-" [ref=f2e1515]
+                                - cell "<1万" [ref=f2e1517]
+                                - cell "-" [ref=f2e1519]
+                                - cell "-" [ref=f2e1521]
+                                - cell "伙伴" [ref=f2e1523]
+                                - cell "-" [ref=f2e1525]
+                                - cell "-" [ref=f2e1527]
+                                - cell "不确定" [ref=f2e1529]
+                                - cell "PRM 同步" [ref=f2e1531]
+                                - cell "华东区" [ref=f2e1533]
+                                - cell "中国" [ref=f2e1535]
+                                - cell "四川省" [ref=f2e1537]
+                                - cell "成都市" [ref=f2e1539]
+                                - cell "已生效" [ref=f2e1541]
+                                - cell "客户培育中" [ref=f2e1543]
+                                - cell "1.1" [ref=f2e1545]
+                                - cell "用户头像 gushaoqing@bytedance.com" [ref=f2e1547]:
+                                  - generic [ref=f2e1551] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1552]
+                                    - generic [ref=f2e1553]: gushaoqing@bytedance.com
+                                - cell "-" [ref=f2e1555]
+                                - cell "-" [ref=f2e1557]
+                                - cell "是" [ref=f2e1559]
+                                - cell [ref=f2e1561]
+                                - cell [ref=f2e1562]
+                                - cell "¥0" [ref=f2e1563]
+                                - cell "0" [ref=f2e1565]
+                                - cell [ref=f2e1567]
+                                - cell "0.00%" [ref=f2e1568]
+                                - cell "-" [ref=f2e1570]
+                                - cell "-" [ref=f2e1572]
+                                - cell [ref=f2e1574]
+                                - cell "销售跟进中" [ref=f2e1575]
+                                - cell "-" [ref=f2e1577]
+                                - cell "-" [ref=f2e1580]
+                                - cell "-" [ref=f2e1583]
+                                - cell "-" [ref=f2e1586]
+                                - cell "-" [ref=f2e1589]
+                                - cell "2025-06-12" [ref=f2e1592]
+                                - cell "2025-06-12" [ref=f2e1594]
+                                - cell "2025-03-08" [ref=f2e1596]
+                                - cell "2025-10-12 13:06:23" [ref=f2e1598]
+                                - cell "用户头像 张跃" [ref=f2e1600]:
+                                  - generic [ref=f2e1604] [cursor=pointer]:
+                                    - img "用户头像" [ref=f2e1605]
+                                    - generic [ref=f2e1606]: 张跃
+                                - cell "生态/交付运营" [ref=f2e1608]
+                                - cell "-" [ref=f2e1610]
+                                - cell "开业" [ref=f2e1612]
+                                - cell "-" [ref=f2e1614]
+                                - cell "-" [ref=f2e1616]
+                                - cell "-" [ref=f2e1618]
+                                - cell [ref=f2e1620]
+                                - cell "-" [ref=f2e1621]
+                                - cell "是" [ref=f2e1623]
+                                - cell "C" [ref=f2e1625]
+                        - generic [ref=f2e1629]:
+                          - generic [ref=f2e1630]: 共 4 条
+                          - list [ref=f2e1631]:
+                            - listitem "上一页" [ref=f2e1632]: .
+                            - listitem "第 1 页" [ref=f2e1635] [cursor=pointer]: "1"
+                            - listitem "下一页" [ref=f2e1636]: .
+                          - generic "页码" [ref=f2e1639]:
+                            - combobox [ref=f2e1640] [cursor=pointer]:
+                              - generic "10 条/页" [ref=f2e1641]:
+                                - generic [ref=f2e1642]:
+                                  - textbox [aria-hidden]
+                                  - generic [ref=f2e1643]: 10 条/页
+                          - generic [ref=f2e1648]:
+                            - text: 前往
+                            - textbox [ref=f2e1649]
+                            - text: 页
+  - generic [ref=f2e162]:
+    - generic [ref=f2e163]:
+      - generic [ref=f2e164]:
+        - generic [ref=f2e168]: C360 AI 助手 · 试试问我
+        - button "关闭引导（今天不再展示）" [ref=f2e169] [cursor=pointer]
+      - button "推荐问题：如何申请成为客户协作人？" [ref=f2e1654] [cursor=pointer]:
+        - generic [ref=f2e1655]:
+          - generic [ref=f2e1656]: 如何申请成为客户协作人？
+          - generic [ref=f2e1657]: 我协同的客户中，最近一周的Seedance ...
+          - generic [ref=f2e1659]: 26年至今收入TOP5客户是哪些？收入分...
+          - generic [ref=f2e1661]: Seedance 2.0 的客户案例有哪些？
+          - generic [ref=f2e1662]: Seedream 5.0 pro有哪些核心功能？
+          - generic [ref=f2e1663]: 如何申请成为客户协作人？
+      - button "点击右侧图标开始对话" [ref=f2e182] [cursor=pointer]
+    - button "打开 C360 AI 助手" [ref=f2e185]:
+      - generic [ref=f2e186]: 试试 AI
+      - img "C360 AI 助手入口" [ref=f2e187]

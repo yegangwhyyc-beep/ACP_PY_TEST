@@ -4,9 +4,14 @@
 Run:
     .venv/bin/python trae_http.py [--port 8300] [--model ...] [--yolo]
 
+--yolo: traecli 加 -y（跳过所有确认、无沙箱执行），客户端同时自动批准残留权限请求。
+
 Endpoints:
     GET  /api/health         -> {"status", "connected", "protocol_version", "session_id"}
-    POST /api/chat           -> {"message": str, "timeout"?: float} => {"reply", "session_id"}
+    POST /api/chat           -> {"message": str, "timeout"?: float} => SSE 流:
+         data: {"type": "chunk"|"thought"|"tool", "text": str}   # 实时增量
+         data: {"type": "done", "reply", "session_id", "thoughts", "tool_events"}
+         data: {"type": "error", "detail": str}
     POST /api/session/reset  -> {"session_id": str}   (start a fresh conversation)
 
 A single traecli ACP process + session is kept alive for all requests, so
@@ -19,14 +24,17 @@ from __future__ import annotations
 import argparse
 import asyncio
 import contextlib
+import json
 import os
 import sys
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import Any
 
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from acp import PROTOCOL_VERSION, RequestError, connect_to_agent
@@ -72,6 +80,8 @@ class CollectingTraeClient(TraeClient):
         self.reply_chunks: list[str] = []
         self.thought_chunks: list[str] = []
         self.tool_events: list[str] = []
+        # SSE 实时事件队列；非 None 时 session_update 会边采集边推送给前端
+        self.events: asyncio.Queue | None = None
 
     def reset(self) -> None:
         self.reply_chunks.clear()
@@ -79,16 +89,23 @@ class CollectingTraeClient(TraeClient):
         self.tool_events.clear()
 
     async def session_update(self, session_id: str, update: Any, **kwargs: Any) -> None:
+        event: dict[str, str] | None = None
         if isinstance(update, AgentMessageChunk):
             text = _block_text(update.content)
             if text and not text.startswith(_TRAECLI_BANNER_PREFIXES):
                 self.reply_chunks.append(text)
+                event = {"type": "chunk", "text": text}
         elif isinstance(update, AgentThoughtChunk):
             text = _block_text(update.content)
             if text:
                 self.thought_chunks.append(text)
+                event = {"type": "thought", "text": text}
         elif isinstance(update, ToolCallStart):
-            self.tool_events.append(f"start: {update.title or update.tool_call_id}")
+            title = f"start: {update.title or update.tool_call_id}"
+            self.tool_events.append(title)
+            event = {"type": "tool", "text": title}
+        if event is not None and self.events is not None:
+            await self.events.put(event)
         await super().session_update(session_id, update, **kwargs)
 
 
@@ -142,15 +159,16 @@ class AgentManager:
             self.session_id = session.session_id
             return self.session_id
 
-    async def chat(self, message: str, timeout: float | None) -> dict[str, Any]:
+    async def chat(self, message: str, timeout: float | None, events: asyncio.Queue | None = None) -> dict[str, Any]:
         async with self.lock:
             if not self.alive():
                 # Lazily (re)start traecli if it died or was never started.
                 await self._ensure_started_locked()
             assert self.client is not None and self.conn is not None and self.session_id is not None
             self.client.reset()
-            effective_timeout = self._prompt_timeout if timeout is None else (None if timeout <= 0 else timeout)
+            self.client.events = events
             try:
+                effective_timeout = self._prompt_timeout if timeout is None else (None if timeout <= 0 else timeout)
                 await _send_prompt(self.conn, self.session_id, message, effective_timeout)
             except asyncio.TimeoutError:
                 with contextlib.suppress(Exception):
@@ -162,12 +180,20 @@ class AgentManager:
                 raise
             except Exception as exc:  # broken pipe / dead subprocess, etc.
                 raise HTTPException(status_code=502, detail=f"agent communication failed: {exc}") from exc
+            finally:
+                self.client.events = None
             return {
                 "reply": "".join(self.client.reply_chunks),
                 "session_id": self.session_id,
                 "thoughts": list(self.client.thought_chunks),
                 "tool_events": list(self.client.tool_events),
             }
+
+    async def abort_current(self) -> None:
+        """Best-effort cancel of the in-flight prompt (used on client disconnect)."""
+        if self.conn is not None and self.session_id is not None:
+            with contextlib.suppress(Exception):
+                await asyncio.wait_for(self.conn.cancel(session_id=self.session_id), timeout=2)
 
     async def _ensure_started_locked(self) -> None:
         try:
@@ -187,6 +213,9 @@ class AgentManager:
         cmd = [trae_path, "acp", "serve"]
         if self._model:
             cmd += ["-c", f'model="{self._model}"']
+        if self._auto_approve:
+            # traecli 端跳过所有确认提示（无沙箱直接执行），权限请求不再产生
+            cmd += ["-y"]
         self.proc = await asyncio.create_subprocess_exec(
             *cmd,
             stdin=asyncio.subprocess.PIPE,
@@ -240,13 +269,6 @@ class ChatRequest(BaseModel):
     timeout: float | None = None  # seconds; <=0 disables the timeout
 
 
-class ChatResponse(BaseModel):
-    reply: str
-    session_id: str
-    thoughts: list[str]
-    tool_events: list[str]
-
-
 @app.get("/api/health")
 async def health() -> dict[str, Any]:
     return {
@@ -257,12 +279,43 @@ async def health() -> dict[str, Any]:
     }
 
 
-@app.post("/api/chat", response_model=ChatResponse)
-async def chat(req: ChatRequest) -> ChatResponse:
+async def _run_chat(message: str, timeout: float | None, queue: asyncio.Queue) -> None:
+    """Run the prompt in the background; push a terminal done/error event at the end."""
+    try:
+        result = await manager.chat(message, timeout, events=queue)
+    except HTTPException as exc:
+        await queue.put({"type": "error", "detail": str(exc.detail)})
+        return
+    except Exception as exc:  # noqa: BLE001
+        await queue.put({"type": "error", "detail": f"agent communication failed: {exc}"})
+        return
+    await queue.put({"type": "done", **result})
+
+
+async def _chat_sse(queue: asyncio.Queue, task: asyncio.Task) -> AsyncIterator[str]:
+    """Drain live agent events as Server-Sent Events until done/error."""
+    try:
+        while True:
+            event = await queue.get()
+            yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
+            if event.get("type") in ("done", "error"):
+                return
+    finally:
+        # 客户端断开（刷新/关页）：取消后台 prompt 并尽力通知 traecli 停止生成
+        if not task.done():
+            task.cancel()
+            with contextlib.suppress(BaseException):
+                await task
+            await manager.abort_current()
+
+
+@app.post("/api/chat")
+async def chat(req: ChatRequest) -> StreamingResponse:
     if not req.message.strip():
         raise HTTPException(status_code=400, detail="message must not be empty")
-    result = await manager.chat(req.message, req.timeout)
-    return ChatResponse(**result)
+    queue: asyncio.Queue = asyncio.Queue()
+    task = asyncio.create_task(_run_chat(req.message, req.timeout, queue))
+    return StreamingResponse(_chat_sse(queue, task), media_type="text/event-stream")
 
 
 @app.post("/api/session/reset")
@@ -284,7 +337,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Default seconds to wait for a prompt to finish; 0 disables",
     )
     parser.add_argument("--debug", action="store_true", help="Show traecli stderr output")
-    parser.add_argument("--yolo", action="store_true", help="Auto-approve permission prompts")
+    parser.add_argument(
+        "--yolo",
+        action="store_true",
+        help="Pass -y to traecli (skip all confirmations, no sandbox) and auto-approve leftover permission prompts",
+    )
     ns = parser.parse_args(args)
 
     global manager

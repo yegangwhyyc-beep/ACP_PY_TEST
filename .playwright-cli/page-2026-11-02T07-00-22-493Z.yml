@@ -1,0 +1,249 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - generic [ref=f2e6]:
+        - link "CUSTOMER 360" [ref=f2e9] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f2e10]:
+            - generic [ref=f2e12]: CUSTOMER
+            - generic [ref=f2e13]: "360"
+        - menu [ref=f2e15]:
+          - generic [ref=f2e17]:
+            - menuitem "工作台" [ref=f2e18] [cursor=pointer]
+            - menuitem "客户管理" [ref=f2e20] [cursor=pointer]
+            - menuitem "商机管理" [ref=f2e21] [cursor=pointer]
+            - generic [ref=f2e22] [cursor=pointer]: 商务管理
+            - menuitem "经营管理" [ref=f2e23] [cursor=pointer]
+            - menuitem "投标管理" [ref=f2e24] [cursor=pointer]
+            - menuitem "项目管理" [ref=f2e25] [cursor=pointer]
+            - generic [ref=f2e26] [cursor=pointer]: 其他
+      - generic [ref=f2e28]:
+        - list [ref=f2e29] [cursor=pointer]:
+          - listitem [ref=f2e30]:
+            - textbox "搜索（⌘ + K)" [ref=f2e41]
+          - listitem [ref=f2e48]:
+            - combobox [ref=f2e49]:
+              - generic "火山" [ref=f2e50]:
+                - generic [ref=f2e51]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e52]: 火山
+          - listitem [ref=f2e57]:
+            - combobox [ref=f2e58]:
+              - generic "中文" [ref=f2e59]:
+                - generic [ref=f2e66]:
+                  - textbox [aria-hidden]
+                  - generic [ref=f2e67]: 中文
+        - img "avatar" [ref=f2e76] [cursor=pointer]
+    - generic [ref=f2e77]:
+      - menu [ref=f2e212]:
+        - generic [ref=f2e214]:
+          - menuitem "客户列表" [ref=f2e215] [cursor=pointer]
+          - menuitem "查询工作台" [ref=f2e216] [cursor=pointer]
+          - menuitem "账号列表" [ref=f2e217] [cursor=pointer]
+        - button [expanded] [ref=f2e218] [cursor=pointer]
+      - main [ref=f2e224]:
+        - main [ref=f2e226]:
+          - main [ref=f2e228]:
+            - generic [ref=f2e229]:
+              - generic [ref=f2e230]: 客户列表
+              - generic [ref=f2e234]:
+                - generic [ref=f2e238]:
+                  - tab "全部客户" [ref=f2e239] [cursor=pointer]
+                  - tab "我负责的" [active] [selected] [ref=f2e241] [cursor=pointer]
+                  - tab "我协作的" [ref=f2e243] [cursor=pointer]
+                  - tab "我收藏的" [ref=f2e245] [cursor=pointer]
+                - tabpanel "我负责的" [ref=f2e1712]:
+                  - generic [ref=f2e1714]:
+                    - radiogroup [ref=f2e1716]:
+                      - generic [ref=f2e1717] [cursor=pointer]:
+                        - radio "单客户维度" [checked]
+                        - generic [ref=f2e1718]: 单客户维度
+                    - generic [ref=f2e1727]:
+                      - generic [ref=f2e1729]:
+                        - generic [ref=f2e1731]:
+                          - tab "我负责的客户" [selected] [ref=f2e1734] [cursor=pointer]
+                          - generic [ref=f2e1747]:
+                            - combobox [ref=f2e1748]:
+                              - generic [ref=f2e1750]:
+                                - textbox "在视图库里搜索选择" [ref=f2e1751]
+                                - generic [ref=f2e1752]: 在视图库里搜索选择
+                            - text: "|"
+                            - button "创建为新视图" [ref=f2e1757] [cursor=pointer]
+                        - generic [ref=f2e1760]:
+                          - generic:
+                            - tabpanel "我负责的客户"
+                      - generic [ref=f2e1762]:
+                        - generic [ref=f2e1763]:
+                          - generic [ref=f2e1765]:
+                            - generic [ref=f2e1766]: 客户名称/客户编号
+                            - combobox [ref=f2e1767]:
+                              - textbox "请输入客户名称/简称/编号" [ref=f2e1772]
+                          - generic [ref=f2e1778]:
+                            - generic [ref=f2e1779]:
+                              - generic [ref=f2e1780]: 客户标签
+                              - img [aria-hidden] [ref=f2e1781] [cursor=pointer]
+                            - combobox [ref=f2e1784]:
+                              - textbox "全部" [ref=f2e1789]
+                        - generic [ref=f2e1794]:
+                          - button [ref=f2e1797] [cursor=pointer]
+                          - button [ref=f2e1803] [cursor=pointer]
+                      - generic [ref=f2e1812]:
+                        - table [ref=f2e1814]:
+                          - rowgroup [ref=f2e1881]:
+                            - row [ref=f2e1882]:
+                              - columnheader "客户编号/客户编号" [ref=f2e1883]
+                              - columnheader "客户标签" [ref=f2e1885]
+                              - columnheader [ref=f2e1888]:
+                                - generic [ref=f2e1889]:
+                                  - generic [ref=f2e1891]:
+                                    - text: L级
+                                    - img [aria-hidden] [ref=f2e1892] [cursor=pointer]
+                                  - generic [ref=f2e1895] [cursor=pointer]
+                              - columnheader "客户简称" [ref=f2e1899]
+                              - columnheader "主客户简称" [ref=f2e1902]
+                              - columnheader "主客户" [ref=f2e1905]
+                              - columnheader "客户类型" [ref=f2e1908]:
+                                - generic [ref=f2e1909]:
+                                  - generic [ref=f2e1910]: 客户类型
+                                  - generic [ref=f2e1911] [cursor=pointer]
+                              - columnheader [ref=f2e1915]:
+                                - generic [ref=f2e1916]:
+                                  - generic [ref=f2e1918]:
+                                    - text: 客户等级
+                                    - img [aria-hidden] [ref=f2e1919] [cursor=pointer]
+                                  - generic [ref=f2e1922] [cursor=pointer]
+                              - columnheader "SMB客户潜力评级" [ref=f2e1926]:
+                                - generic [ref=f2e1927]:
+                                  - generic [ref=f2e1928]: SMB客户潜力评级
+                                  - generic [ref=f2e1929] [cursor=pointer]
+                              - columnheader "客户来源" [ref=f2e1933]:
+                                - generic [ref=f2e1934]:
+                                  - generic [ref=f2e1935]: 客户来源
+                                  - generic [ref=f2e1936] [cursor=pointer]
+                              - columnheader "客户所有人" [ref=f2e1940]:
+                                - generic [ref=f2e1941]:
+                                  - generic [ref=f2e1942]: 客户所有人
+                                  - generic [ref=f2e1943] [cursor=pointer]
+                              - columnheader "销售团队" [ref=f2e1947]
+                              - columnheader "销售小组" [ref=f2e1950]
+                              - columnheader "二级小组" [ref=f2e1953]
+                              - columnheader "行业" [ref=f2e1956]:
+                                - generic [ref=f2e1957]:
+                                  - generic [ref=f2e1958]: 行业
+                                  - generic [ref=f2e1959] [cursor=pointer]
+                              - columnheader "二级行业" [ref=f2e1963]:
+                                - generic [ref=f2e1964]:
+                                  - generic [ref=f2e1965]: 二级行业
+                                  - generic [ref=f2e1966] [cursor=pointer]
+                              - columnheader "区域" [ref=f2e1970]:
+                                - generic [ref=f2e1971]:
+                                  - generic [ref=f2e1972]: 区域
+                                  - generic [ref=f2e1973] [cursor=pointer]
+                              - columnheader "国家" [ref=f2e1977]:
+                                - generic [ref=f2e1978]:
+                                  - generic [ref=f2e1979]: 国家
+                                  - generic [ref=f2e1980] [cursor=pointer]
+                              - columnheader "省份" [ref=f2e1984]:
+                                - generic [ref=f2e1985]:
+                                  - generic [ref=f2e1986]: 省份
+                                  - generic [ref=f2e1987] [cursor=pointer]
+                              - columnheader "城市" [ref=f2e1991]:
+                                - generic [ref=f2e1992]:
+                                  - generic [ref=f2e1993]: 城市
+                                  - generic [ref=f2e1994] [cursor=pointer]
+                              - columnheader "公司规模" [ref=f2e1998]:
+                                - generic [ref=f2e1999]:
+                                  - generic [ref=f2e2000]: 公司规模
+                                  - generic [ref=f2e2001] [cursor=pointer]
+                              - columnheader "客户状态" [ref=f2e2005]:
+                                - generic [ref=f2e2006]:
+                                  - generic [ref=f2e2007]: 客户状态
+                                  - generic [ref=f2e2008] [cursor=pointer]
+                              - columnheader "客户跟进状态" [ref=f2e2012]:
+                                - generic [ref=f2e2013]:
+                                  - generic [ref=f2e2014]: 客户跟进状态
+                                  - generic [ref=f2e2015] [cursor=pointer]
+                              - columnheader "跟进时长" [ref=f2e2019]
+                              - columnheader "跟进优先级" [ref=f2e2035]
+                              - columnheader "描述（电销用）" [ref=f2e2051]
+                              - columnheader "客户创建日期" [ref=f2e2054]
+                              - columnheader "最新修改时间" [ref=f2e2065]
+                              - columnheader "最新修改人" [ref=f2e2076]
+                              - columnheader "客户描述" [ref=f2e2079]
+                              - columnheader "客保到期时间" [ref=f2e2082]
+                              - columnheader "客保到期原因" [ref=f2e2093]
+                              - columnheader "是否占库容" [ref=f2e2096]
+                              - columnheader "近3个月收入" [ref=f2e2099]
+                              - columnheader "商机数量" [ref=f2e2115]
+                              - columnheader "赢单商机数量" [ref=f2e2126]
+                              - columnheader "赢单商机总额" [ref=f2e2137]
+                              - columnheader "云潜力（万）" [ref=f2e2148]
+                              - columnheader "火山渗透率" [ref=f2e2159]
+                              - columnheader "最新记录年度" [ref=f2e2170]
+                              - columnheader "客户名单分类" [ref=f2e2181]:
+                                - generic [ref=f2e2182]:
+                                  - generic [ref=f2e2183]: 客户名单分类
+                                  - generic [ref=f2e2184] [cursor=pointer]
+                              - columnheader "客户归属状态" [ref=f2e2188]:
+                                - generic [ref=f2e2189]:
+                                  - generic [ref=f2e2190]: 客户归属状态
+                                  - generic [ref=f2e2191] [cursor=pointer]
+                              - columnheader "累计创建商机数" [ref=f2e2195]
+                              - columnheader "客户团队-销售" [ref=f2e2206]
+                              - columnheader "客户团队-BD" [ref=f2e2209]
+                              - columnheader "客户团队-渠道&生态" [ref=f2e2212]
+                              - columnheader "客户团队-行解" [ref=f2e2215]
+                              - columnheader "客户团队-CSM" [ref=f2e2218]
+                              - columnheader "开启中合同数量" [ref=f2e2221]
+                              - columnheader "最近拜访日期" [ref=f2e2237]
+                              - columnheader "首次拜访日期" [ref=f2e2248]
+                              - columnheader "最近签约日期" [ref=f2e2259]
+                              - columnheader "最新关联owner时间" [ref=f2e2270]
+                              - columnheader "Byteplus客户编号" [ref=f2e2281]:
+                                - generic [ref=f2e2282]:
+                                  - generic [ref=f2e2283]: Byteplus客户编号
+                                  - generic [ref=f2e2284] [cursor=pointer]
+                              - columnheader "客户开业状态" [ref=f2e2288]:
+                                - generic [ref=f2e2289]:
+                                  - generic [ref=f2e2290]: 客户开业状态
+                                  - generic [ref=f2e2291] [cursor=pointer]
+                              - columnheader "渠道销售跟进状态" [ref=f2e2295]:
+                                - generic [ref=f2e2296]:
+                                  - generic [ref=f2e2297]: 渠道销售跟进状态
+                                  - generic [ref=f2e2298] [cursor=pointer]
+                              - columnheader "客户流程处理中类型" [ref=f2e2302]:
+                                - generic [ref=f2e2303]:
+                                  - generic [ref=f2e2304]: 客户流程处理中类型
+                                  - generic [ref=f2e2305] [cursor=pointer]
+                              - columnheader "处理负责人" [ref=f2e2309]:
+                                - generic [ref=f2e2310]:
+                                  - generic [ref=f2e2311]: 处理负责人
+                                  - generic [ref=f2e2312] [cursor=pointer]
+                              - columnheader "2026年全年大模型钱包深度（万）" [ref=f2e2316]
+                              - columnheader "2026年全年大模型火山份额" [ref=f2e2327]
+                              - columnheader "2026年全年大模型友商份额" [ref=f2e2338]
+                              - columnheader "本月预估收入" [ref=f2e2341]
+                              - columnheader "是否关联火山账号" [ref=f2e2357]
+                              - columnheader "当前所有人外呼次数" [ref=f2e2360]
+                              - columnheader "当前所有人最近一次外呼时间" [ref=f2e2376]
+                        - table [ref=f2e2393]:
+                          - rowgroup [ref=f2e2460]:
+                            - row [ref=f2e2461]:
+                              - cell "暂无数据" [ref=f2e2462]
+  - generic [ref=f2e162]:
+    - generic [ref=f2e163]:
+      - generic [ref=f2e164]:
+        - generic [ref=f2e168]: C360 AI 助手 · 试试问我
+        - button "关闭引导（今天不再展示）" [ref=f2e169] [cursor=pointer]
+      - button "推荐问题：如何申请成为客户协作人？" [ref=f2e2470] [cursor=pointer]:
+        - generic [ref=f2e1655]:
+          - generic [ref=f2e1656]: 如何申请成为客户协作人？
+          - generic [ref=f2e1657]: 我协同的客户中，最近一周的Seedance ...
+          - generic [ref=f2e1659]: 26年至今收入TOP5客户是哪些？收入分...
+          - generic [ref=f2e1661]: Seedance 2.0 的客户案例有哪些？
+          - generic [ref=f2e1662]: Seedream 5.0 pro有哪些核心功能？
+          - generic [ref=f2e1663]: 如何申请成为客户协作人？
+      - button "点击右侧图标开始对话" [ref=f2e182] [cursor=pointer]
+    - button "打开 C360 AI 助手" [ref=f2e185]:
+      - generic [ref=f2e186]: 试试 AI
+      - img "C360 AI 助手入口" [ref=f2e187]

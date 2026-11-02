@@ -1,0 +1,96 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - paragraph [ref=e5]: 你的专业电子邮局
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "手机App下载" [ref=e8] [cursor=pointer]:
+          - /url: https://u.163.com/6m7skjbNN?scene=appTrack&session_id=0094B866-C686-4363-B5A8-5ADF7FA73EB8&uid=&from=mail11&spm=pos.free_webmail_9c89159b6fde1dc2.loginPage.login163Page.header.nav
+        - generic [ref=e9]: 多账号登录
+      - link "电脑客户端下载" [ref=e10] [cursor=pointer]:
+        - /url: https://u.163.com/i8VW3j4nx?scene=appTrack&session_id=0094B866-C686-4363-B5A8-5ADF7FA73EB8&uid=&from=mail340&spm=pos.free_webmail_9c89159b6fde1dc2.loginPage.login163Page.header.nav
+      - link "VIP" [ref=e11] [cursor=pointer]:
+        - /url: https://vipmail.163.com/?from=fmail
+      - link "会员" [ref=e12] [cursor=pointer]:
+        - /url: https://v.mail.163.com/?utm_source=163loginnav
+      - link "靓号" [ref=e13] [cursor=pointer]:
+        - /url: https://haoma.163.com/?from=web_login_top&pd=ismail
+      - link "企业邮箱" [ref=e14] [cursor=pointer]:
+        - /url: https://u.163.com/login_163_qiye
+      - link "海外登录" [ref=e15] [cursor=pointer]:
+        - /url: https://hw.mail.163.com/#163
+      - link "安全" [ref=e16] [cursor=pointer]:
+        - /url: https://mail.163.com/projects/safety-website/index.html
+      - link "帮助" [ref=e17] [cursor=pointer]:
+        - /url: https://help.mail.163.com
+      - link "反馈" [ref=e18] [cursor=pointer]:
+        - /url: /html/feedback/#/45
+      - link "修复公示" [ref=e20] [cursor=pointer]:
+        - /url: https://mail.163.com/html/accounts-repair/index.html#/taskPublicity
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24] [cursor=pointer]
+      - generic [ref=e26]:
+        - heading "账号登录" [level=2] [ref=e27]
+        - generic [ref=e28]:
+          - iframe [ref=e30]:
+            - generic [ref=f3e7]:
+              - generic [ref=f3e9]:
+                - textbox "邮箱账号或手机号码" [active] [ref=f3e10]
+                - generic [ref=f3e11]: "@163.com"
+              - generic [ref=f3e13]:
+                - generic [ref=f3e14]:
+                  - textbox "输入密码" [ref=f3e15]
+                  - textbox "输入密码" [ref=f3e16]
+                - generic [ref=f3e18] [cursor=pointer]
+              - link "登 录" [ref=f3e19] [cursor=pointer]:
+                - /url: javascript:void(0);
+              - generic [ref=f3e20]:
+                - generic [ref=f3e21]:
+                  - checkbox "30天内免登录" [ref=f3e23] [cursor=pointer]
+                  - generic [ref=f3e24] [cursor=pointer]: 30天内免登录
+                - link "忘记密码" [ref=f3e25] [cursor=pointer]:
+                  - /url: https://id.163.com/mail/retrievepassword
+          - generic [ref=e31]:
+            - link "注册新账号" [ref=e32] [cursor=pointer]:
+              - /url: https://mail.163.com/register/index.htm?from=163mail&utm_source=163mail
+            - link "注册VIP" [ref=e33] [cursor=pointer]:
+              - /url: https://reg1.vip.163.com/newReg1/open?utm_source=webmail_reg_vip&id=v200
+        - generic [ref=e34]:
+          - text: 阅读并接受
+          - link "《服务条款》" [ref=e35] [cursor=pointer]:
+            - /url: https://reg.163.com/agreement_wap.shtml?v=20171127
+          - text: 和
+          - link "《隐私政策》" [ref=e36] [cursor=pointer]:
+            - /url: https://mail.163.com/html/agreement/doc.html
+    - generic [ref=e37]:
+      - link [ref=e42] [cursor=pointer]:
+        - /url: http://r.mail.163.com/r.jsp?url=https%3A%2F%2Fqiye.163.com%2Factivity%2Fsem%2Fpaq1.html%3Ffrom%3DM126_163_LOGIN_banner&sign=-1386861471&_r_ignore_statId=1_900_165_984&position=1&_r_ignore_moduleId=900&spm=ad.0.0.0.900.984&_r_ignore_uid=nt%40163.com&uid=nt%40163.com&session_id=0094B866-C686-4363-B5A8-5ADF7FA73EB8
+      - generic [ref=e45]:
+        - link "上一张" [ref=e46] [cursor=pointer]:
+          - /url: javascript:void(0);
+        - link "下一张" [ref=e47] [cursor=pointer]:
+          - /url: javascript:void(0);
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - link "网易首页" [ref=e51] [cursor=pointer]:
+        - /url: https://www.163.com/
+      - link "企业邮箱" [ref=e52] [cursor=pointer]:
+        - /url: https://qiye.163.com/
+      - link "网易外贸通" [ref=e53] [cursor=pointer]:
+        - /url: https://waimao.163.com/
+      - link "政府公益热线" [ref=e54] [cursor=pointer]:
+        - /url: https://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2842e8b50ff6a4ebb
+      - generic [ref=e55]: 网易公司版权所有©1997- 2026
+    - generic [ref=e56]:
+      - link "ICP备案 粤B2-20090191-18" [ref=e57] [cursor=pointer]:
+        - /url: http://beian.miit.gov.cn/
+      - link [ref=e59] [cursor=pointer]:
+        - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602006299
+        - img "公安" [ref=e60]
+        - text: 粤公网安备 44010602006299
+      - generic [ref=e61]:
+        - generic [ref=e62]: 增值电信业务许可证
+        - link "粤B2-20090191" [ref=e63] [cursor=pointer]:
+          - /url: https://cms-bucket.ws.126.net/2024/0417/5cc4f9d1j00sc2fut0065c000un017cc.jpg
+        - link "B2-20090058" [ref=e64] [cursor=pointer]:
+          - /url: https://cms-bucket.ws.126.net/2024/0417/92a4257cp00sc2fw800o7c001p0017cc.png

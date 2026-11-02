@@ -24,7 +24,7 @@ index.html (浏览器)
 | 端点                   | 方法   | 说明                                                                   |
 | -------------------- | ---- | -------------------------------------------------------------------- |
 | `/api/health`        | GET  | 服务与 traecli 连接状态                                                     |
-| `/api/chat`          | POST | `{message, timeout?}` → `{reply, session_id, thoughts, tool_events}` |
+| `/api/chat`          | POST | `{message, timeout?}` → SSE 流：`chunk`/`thought`/`tool` 实时增量 + 终态 `done`/`error` 事件 |
 | `/api/session/reset` | POST | 开启新 ACP 会话，清空上下文                                                     |
 
 ## 常用命令
@@ -48,9 +48,10 @@ curl -s http://127.0.0.1:8300/api/health
   `asyncio.Lock` 串行化；不要引入并发 prompt。
 - 子进程死亡时由 `chat()` 懒重启（`_ensure_started_locked`），勿在请求路径外手动 spawn。
 - 回复采集在 `CollectingTraeClient.session_update`；新增需要透传给前端的事件，
-  在此扩展采集并同步 `ChatResponse` 模型与 `index.html` 的 `addExtras()`。
+  在此扩展采集（同时写入 `self.events` 队列实现 SSE 实时推送），并同步 `app.js` 的 `handleEvent()`。
 - traecli 定位顺序：`--trae` 参数 > `ACP_TRAE_BIN` 环境变量 > PATH（`trae.py::_resolve_trae_cli`）。
-- prompt 超时默认 120s（`--prompt-timeout 0` 关闭），超时后发送 `conn.cancel` 并返回 504。
+- prompt 超时默认 120s（`--prompt-timeout 0` 关闭），超时后发送 `conn.cancel` 并以
+  SSE `error` 事件结束流；前端发 `timeout: 0` 关闭超时，浏览器断开会取消进行中的 prompt。
 
 ## 已知坑（历史教训）
 

@@ -115,11 +115,14 @@ function createExtras(bubble) {
 
 // ===== 发送：POST /api/chat（SSE 流式） =====
 let busy = false;
+let abortController = null; // 任务中非空；abort() 断开 SSE，后端断连即取消 prompt
 async function sendMessage() {
   const text = inputEl.value.trim();
   if (!text || busy) return;
   busy = true;
-  sendBtn.disabled = true;
+  sendBtn.textContent = "取消";
+  sendBtn.classList.add("canceling");
+  abortController = new AbortController();
   inputEl.value = "";
   addBubble(text, "user");
 
@@ -159,8 +162,9 @@ async function sendMessage() {
     const res = await fetch(`${API_BASE}/api/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // SSE 长连接：关闭服务端超时（0），需要中止时刷新页面即可（断连会取消 prompt）
+      // SSE 长连接：关闭服务端超时（0）；点「取消」abort 断连，后端会取消 prompt
       body: JSON.stringify({ message: text, timeout: 0 }),
+      signal: abortController.signal,
     });
     if (!res.ok) {
       let detail = `HTTP ${res.status}`;
@@ -191,14 +195,21 @@ async function sendMessage() {
     }
   } catch (err) {
     if (!rendered && placeholder) placeholder.remove();
-    bubble.classList.add("error");
-    const d = document.createElement("div");
-    d.textContent = "请求失败：" + (err.message || "未知错误");
-    bubble.appendChild(d);
+    if (err.name === "AbortError") {
+      // 用户主动取消：已收到的部分回复保留，无内容则标注取消
+      if (!rendered) content.textContent = replyText || "⏹ 已取消";
+    } else {
+      bubble.classList.add("error");
+      const d = document.createElement("div");
+      d.textContent = "请求失败：" + (err.message || "未知错误");
+      bubble.appendChild(d);
+    }
   } finally {
     bubble.classList.remove("typing");
     busy = false;
-    sendBtn.disabled = false;
+    abortController = null;
+    sendBtn.textContent = "发送";
+    sendBtn.classList.remove("canceling");
     inputEl.focus();
     messagesEl.scrollTop = messagesEl.scrollHeight;
     checkHealth();
@@ -219,7 +230,11 @@ resetBtn.addEventListener("click", async () => {
   }
 });
 
-sendBtn.addEventListener("click", sendMessage);
+// 任务中点按钮 = 取消；空闲时 = 发送
+sendBtn.addEventListener("click", () => {
+  if (busy) abortController && abortController.abort();
+  else sendMessage();
+});
 inputEl.addEventListener("keydown", e => { if (e.key === "Enter") sendMessage(); });
 
 addBubble("你好，我是 TRAE Agent（通过 traecli ACP 接入）。确保 trae_http.py 已在运行，然后随便聊点什么吧。", "assistant");

@@ -46,7 +46,7 @@ cd backend && uv run trae.py
 
 ## 必须遵循
 
-- 生成的任何中间产物放到tempfile 目录下
+- 生成的任何中间产物放到/tempfile 目录下
 
 ## 修改指引
 

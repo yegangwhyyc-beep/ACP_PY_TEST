@@ -59,3 +59,42 @@ footer button:disabled { opacity: .5; cursor: not-allowed; }
   flex: 1; padding: 5px 10px; border: 1px solid var(--border); border-radius: 8px;
   font-size: 12px; outline: none; font-family: monospace;
 }
+
+/* ===== Markdown 渲染样式 ===== */
+.bubble.md { white-space: normal; }
+.bubble.md > *:first-child { margin-top: 0; }
+.bubble.md > *:last-child { margin-bottom: 0; }
+.bubble.md p { margin: 0 0 8px; }
+.bubble.md h1, .bubble.md h2, .bubble.md h3, .bubble.md h4, .bubble.md h5, .bubble.md h6 {
+  margin: 12px 0 6px; line-height: 1.4; font-weight: 600;
+}
+.bubble.md h1 { font-size: 17px; } .bubble.md h2 { font-size: 16px; }
+.bubble.md h3 { font-size: 15px; } .bubble.md h4, .bubble.md h5, .bubble.md h6 { font-size: 14px; }
+.bubble.md ul, .bubble.md ol { margin: 6px 0; padding-left: 20px; }
+.bubble.md li { margin: 3px 0; }
+.bubble.md li > p { margin: 0; }
+.bubble.md a { color: var(--user); }
+.bubble.md strong { font-weight: 600; }
+.bubble.md blockquote {
+  margin: 8px 0; padding: 4px 12px; border-left: 3px solid var(--user);
+  background: rgba(79, 110, 247, .07); border-radius: 0 8px 8px 0; color: #55607a;
+}
+.bubble.md blockquote > *:first-child { margin-top: 0; }
+.bubble.md blockquote > *:last-child { margin-bottom: 0; }
+.bubble.md code {
+  background: rgba(0, 0, 0, .07); padding: 1px 5px; border-radius: 4px;
+  font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.bubble.md pre {
+  margin: 8px 0; padding: 10px 12px; border-radius: 8px;
+  background: #0d1117; overflow-x: auto; line-height: 1.5;
+}
+.bubble.md pre code {
+  background: transparent; padding: 0; color: #e6edf3;
+  font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.bubble.md table { border-collapse: collapse; margin: 8px 0; font-size: 13px; display: block; max-width: 100%; overflow-x: auto; }
+.bubble.md th, .bubble.md td { border: 1px solid #d5d8e0; padding: 4px 10px; text-align: left; white-space: nowrap; }
+.bubble.md th { background: rgba(0, 0, 0, .05); font-weight: 600; }
+.bubble.md hr { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+.bubble.md img { max-width: 100%; border-radius: 8px; }

@@ -38,6 +38,39 @@ function short(id) { return id ? id.slice(0, 13) + "…" : "-"; }
 checkHealth();
 setInterval(checkHealth, 15000);
 
+// ===== Markdown 渲染（助手回复） =====
+if (typeof marked !== "undefined") {
+  marked.use({ gfm: true, breaks: true });
+}
+function renderMarkdown(text) {
+  const tpl = document.createElement("template");
+  if (typeof marked !== "undefined") {
+    tpl.innerHTML = marked.parse(text);
+  } else {
+    // CDN 不可用时的降级：转义 HTML 并保留换行
+    const esc = document.createElement("div");
+    esc.textContent = text;
+    tpl.innerHTML = esc.innerHTML;
+  }
+  // 剥离可执行内容，防止回复中的脚本/事件处理器注入页面
+  tpl.content.querySelectorAll("script, style, iframe, object, embed").forEach(el => el.remove());
+  tpl.content.querySelectorAll("*").forEach(el => {
+    for (const attr of [...el.attributes]) {
+      if (/^on/i.test(attr.name) || (attr.name === "href" && /^\s*javascript:/i.test(attr.value))) {
+        el.removeAttribute(attr.name);
+      }
+    }
+  });
+  return tpl.innerHTML;
+}
+function fillMarkdown(bubble, text) {
+  bubble.classList.add("md");
+  bubble.innerHTML = renderMarkdown(text);
+  if (typeof hljs !== "undefined") {
+    bubble.querySelectorAll("pre code").forEach(el => { try { hljs.highlightElement(el); } catch {} });
+  }
+}
+
 // ===== 渲染 =====
 function addBubble(text, role, cls) {
   const wrap = document.createElement("div");
@@ -90,7 +123,7 @@ async function sendMessage() {
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
     typing.classList.remove("typing");
-    typing.textContent = data.reply || "(空回复)";
+    fillMarkdown(typing, data.reply || "(空回复)");
     addExtras(typing, data.thoughts, data.tool_events);
   } catch (err) {
     typing.classList.remove("typing");

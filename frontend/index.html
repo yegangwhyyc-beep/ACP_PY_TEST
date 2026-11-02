@@ -9,12 +9,32 @@
 </head>
 <body>
 <div class="app">
-  <header>
-    <div id="dot" class="dot"></div>
-    <h1>TRAE Agent Chat</h1>
-    <span id="status" class="status">连接中…</span>
-    <button id="reset-btn" class="act" title="调用 POST /api/session/reset 开启全新会话">新会话</button>
-  </header>
+
+  <!-- ===== Banner ===== -->
+  <div class="banner">
+    <div class="banner-glow glow-1"></div>
+    <div class="banner-glow glow-2"></div>
+    <div class="banner-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l2.35 7.18L22 12l-7.65 2.82L12 22l-2.35-7.18L2 12l7.65-2.82L12 2z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>TRAE Agent Chat</h1>
+          <p class="tagline">ACP 协议接入 · traecli 驱动 · 本机智能体对话</p>
+        </div>
+      </div>
+      <div class="banner-side">
+        <div class="conn">
+          <div id="dot" class="dot"></div>
+          <span id="status" class="status">连接中…</span>
+        </div>
+        <button id="reset-btn" class="act" title="调用 POST /api/session/reset 开启全新会话">＋ 新会话</button>
+      </div>
+    </div>
+  </div>
 
   <div class="settings">
     <label for="api-base">API 地址</label>

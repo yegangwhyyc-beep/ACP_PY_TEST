@@ -1,4 +1,12 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
+
+# macOS
 .DS_Store
+
+# 测试/调试产物
+.playwright-cli/
+*.png
+*.log

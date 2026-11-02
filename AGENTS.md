@@ -20,11 +20,11 @@ frontend/index.html (浏览器)
 
 ## API
 
-| 端点                   | 方法   | 说明                                                                   |
-| -------------------- | ---- | -------------------------------------------------------------------- |
-| `/api/health`        | GET  | 服务与 traecli 连接状态                                                     |
+| 端点                   | 方法   | 说明                                                                                 |
+| -------------------- | ---- | ---------------------------------------------------------------------------------- |
+| `/api/health`        | GET  | 服务与 traecli 连接状态                                                                   |
 | `/api/chat`          | POST | `{message, timeout?}` → SSE 流：`chunk`/`thought`/`tool` 实时增量 + 终态 `done`/`error` 事件 |
-| `/api/session/reset` | POST | 开启新 ACP 会话，清空上下文                                                     |
+| `/api/session/reset` | POST | 开启新 ACP 会话，清空上下文                                                                   |
 
 ## 常用命令
 
@@ -41,6 +41,12 @@ cd backend && uv run trae.py
 ```
 
 前端直接用浏览器打开 `frontend/index.html`，API 地址可在页面顶栏修改（持久化到 localStorage）。
+
+<br />
+
+## 必须遵循
+
+- 生成的任何中间产物放到./tempfile 目录下
 
 ## 修改指引
 
